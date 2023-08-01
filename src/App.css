@@ -3,7 +3,21 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  /* background-color: red; */
 }
+
+header{
+  min-height: 20vh;
+}
+
+main{
+  min-height: 70vh;
+}
+
+footer{
+  min-height: 10vh;
+}
+
 
 .logo {
   height: 6em;
