@@ -1,0 +1,92 @@
+{
+    "slider1": [
+        {
+            "id": 1,
+            "ciudad": "Beijing",
+            "pais": "China",
+            "imagen": "/images/beijing.jpg",
+            "url": "#"
+        },
+        {
+            "id": 2,
+            "ciudad": "Cairo",
+            "pais": "Egypt",
+            "imagen": "/images/cairo.jpg",
+            "url": "#"
+        },
+        {
+            "id": 3,
+            "ciudad": "London",
+            "pais": "United Kingdom",
+            "imagen": "/images/london.jpg",
+            "url": "#"
+        },
+        {
+            "id": 4,
+            "ciudad": "Mumbai",
+            "pais": "India",
+            "imagen": "/images/mumbai.jpg",
+            "url": "#"
+        }
+    ],
+    "slider2": [
+        {
+            "id": 5,
+            "ciudad": "Moscow",
+            "pais": "Russia",
+            "imagen": "/images/moscow.jpg",
+            "url": "#"
+        },
+        {
+            "id": 6,
+            "ciudad": "New York",
+            "pais": "United States",
+            "imagen": "/images/new-york.jpg",
+            "url": "#"
+        },
+        {
+            "id": 7,
+            "ciudad": "Paris",
+            "pais": "France",
+            "imagen": "/images/paris.jpg",
+            "url": "#"
+        },
+        {
+            "id": 8,
+            "ciudad": "Rio de Janeiro",
+            "pais": "Brazil",
+            "imagen": "/images/rio.jpg",
+            "url": "#"
+        }
+    ],
+    "slider3": [
+        {
+            "id": 9,
+            "ciudad": "Rome",
+            "pais": "Italy",
+            "imagen": "/images/rome.jpg",
+            "url": "#"
+        },
+        {
+            "id": 10,
+            "ciudad": "Sydney",
+            "pais": "Australia",
+            "imagen": "/images/sydney.jpg",
+            "url": "#"
+        },
+        {
+            "id": 11,
+            "ciudad": "Tokyo",
+            "pais": "Japan",
+            "imagen": "/images/tokyo.jpg",
+            "url": "#"
+        },
+        {
+            "id": 12,
+            "ciudad": "Toronto",
+            "pais": "Canada",
+            "imagen": "/images/toronto.jpg",
+            "url": "#"
+        }
+    ]
+}

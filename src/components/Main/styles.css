@@ -1,0 +1,24 @@
+#call-to-action{
+    font-size: 30px;
+    border-radius: 10px;
+    max-width: 400px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 42px;
+    background: -webkit-linear-gradient(left top, red, yellow);
+    background: linear-gradient(to bottom right, red, yellow);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .popular {
+    font-size: 45px;
+    background: -webkit-linear-gradient(left top, red, yellow);
+    background: linear-gradient(to bottom right, red, yellow);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }

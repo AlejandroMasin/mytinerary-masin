@@ -1,0 +1,50 @@
+#title{
+    font-weight: 800;
+    text-align: left;
+}
+
+#parrafo{
+    font-weight: 500;
+    text-align: left;
+    max-width: 850px;
+    
+}
+
+#boton{
+    max-width: 346px;
+    text-align: center;
+}
+
+div img {
+    border-radius: 10px;
+    
+}
+
+@media (max-width: 767px) {
+
+    #title{
+        text-align: center;
+    }
+    .row.justify-content-center.align-items-center {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .col-md-6.text-center {
+        text-align: center;
+    }
+    
+    #parrafo{
+        text-align: center;
+    }
+    
+    #boton {
+        text-align: center;
+        display: inline;
+    }
+
+    #imagen__hero{
+        text-align: center !important;
+    }
+
+}

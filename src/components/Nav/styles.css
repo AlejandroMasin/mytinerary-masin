@@ -1,0 +1,7 @@
+.nav-link active {
+    color: red !important
+}
+
+img[alt="logo persona"]{
+    padding-right: 10px;
+}
