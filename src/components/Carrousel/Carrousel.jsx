@@ -8,6 +8,7 @@ import './styles.css'
 import { slider1, slider2, slider3 } from '../../db/data_cities_sliders.json'
 
 
+
 function Carrousel() {
 
     return (
