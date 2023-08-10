@@ -1,11 +1,8 @@
 import Card from '../Card/Card'
-import images from '../../db/data_cities.json'
-import {slider1, slider2, slider3} from '../../db/data_cities_sliders.json'
 
+function Slider({ nro_slider }) {
 
-function Slider( {imagen1, imagen2, imagen3, imagen4} ) {
-
-    console.log(slider1, slider2, slider3);
+    console.log();
     return (
         <>
 
@@ -13,17 +10,17 @@ function Slider( {imagen1, imagen2, imagen3, imagen4} ) {
 
                 <div className="col">
 
-                    <Card imagen={images[imagen1].imagen} ciudad={images[imagen1].ciudad} pais={images[imagen1].pais} />
+                    <Card imagen={nro_slider[0].imagen} ciudad={nro_slider[0].ciudad} pais={nro_slider[0].pais} />
 
-                    <Card imagen={images[imagen2].imagen} ciudad={images[imagen2].ciudad} pais={images[imagen2].pais} />
+                    <Card imagen={nro_slider[1].imagen} ciudad={nro_slider[1].ciudad} pais={nro_slider[1].pais} />
 
                 </div>
 
                 <div className="col">
 
-                    <Card imagen={images[imagen3].imagen} ciudad={images[imagen3].ciudad} pais={images[imagen3].pais} />
+                    <Card imagen={nro_slider[2].imagen} ciudad={nro_slider[2].ciudad} pais={nro_slider[2].pais} />
 
-                    <Card imagen={images[imagen4].imagen} ciudad={images[imagen4].ciudad} pais={images[imagen4].pais} />
+                    <Card imagen={nro_slider[3].imagen} ciudad={nro_slider[3].ciudad} pais={nro_slider[3].pais} />
 
                 </div>
 

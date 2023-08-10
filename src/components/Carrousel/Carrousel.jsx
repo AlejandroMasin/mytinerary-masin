@@ -5,6 +5,7 @@ import BtnNext from '../BtnNext/BtnNext'
 import BtnPrev from '../BtnPrev/BtnPrev'
 import Slider from '../Slider/Slider'
 import './styles.css'
+import { slider1, slider2, slider3 } from '../../db/data_cities_sliders.json'
 
 
 function Carrousel() {
@@ -16,19 +17,19 @@ function Carrousel() {
 
                     <div className="carousel-item active" data-bs-interval="3000">
 
-                        <Slider imagen1={0} imagen2={1} imagen3={2} imagen4={3} />
+                        <Slider nro_slider={slider1} />
 
                     </div>
 
                     <div className="carousel-item" data-bs-interval="3000">
 
-                        <Slider imagen1={4} imagen2={5} imagen3={6} imagen4={7} />
+                        <Slider nro_slider={slider2} />
 
                     </div>
 
                     <div className="carousel-item" data-bs-interval="3000">
 
-                        <Slider imagen1={8} imagen2={9} imagen3={10} imagen4={11} />
+                        <Slider nro_slider={slider3} />
 
                     </div>
 
