@@ -9,6 +9,9 @@ import Layout from './layouts/Layout'
 
 import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 import Error404 from "./pages/Error404/Error404"
+import City from "./pages/City/City"
+// import UnderConstruction from "./components/UnderConstruction/UnderConstruction"
+// import Cities2 from "./pages/Cities2/Cities2"
 
 const router = createBrowserRouter([
   {
@@ -19,6 +22,9 @@ const router = createBrowserRouter([
       },
       {
         path:'/cities', element:<Cities />,
+      },
+      {
+        path:'/cities/city/:id', element:<City />,
       },
       {
         path:'*', element:<Error404 />,

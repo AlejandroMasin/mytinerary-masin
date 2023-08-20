@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
 import './styles.css';
-import { Link as Anchor } from 'react-router-dom'
 
-
-function Cities() {
+function Cities2() {
   const [ciudades, setCiudades] = useState([]);
   const [inputValue, setInputValue] = useState('');
 
@@ -57,9 +55,7 @@ function Cities() {
             <div className='contenedor_cards_imagen' key={index}>
               <img src={ciudad.imagen} alt="" />
               <h5>{ciudad.ciudad}</h5>
-              {/* <button >Mas info</button> */}
-              <Anchor className="btn btn-danger" to={`/cities/city/${ciudad.id}`}>Mas info</Anchor>
-
+              <button className="btn btn-danger">Mas info</button>
             </div>
           ))
         )}
@@ -68,4 +64,4 @@ function Cities() {
   );
 }
 
-export default Cities;
+export default Cities2;

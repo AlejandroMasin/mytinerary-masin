@@ -18,10 +18,14 @@
     border: 5px solid rgba(255, 0, 0, 0.5);
 }
 
+#contenedor_cards{
+    min-height: 50vh;
+}
+
 .contenedor_cards_imagen{
     /* margin: 10px;
     border: 1px solid red; */
-
+    /* height: 80vh; */
     width: 300px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -40,8 +44,4 @@
     margin: 30px 0 30px;
     padding: 10px;
     height: 400px;
-}
-
-#contenedor_cards {
-    width: 85vw;
 }
