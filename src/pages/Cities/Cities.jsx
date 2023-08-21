@@ -45,7 +45,7 @@ function Cities() {
         </div>
       </div>
 
-      <div id="contenedor_cards" className="d-flex justify-content-center align-items-center flex-wrap">
+      <div id="contenedor_cards" className="container d-flex justify-content-center align-items-center flex-wrap">
         {ciudadesFiltrados.length === 0
         ?
          (

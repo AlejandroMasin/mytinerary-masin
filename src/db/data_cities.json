@@ -82,5 +82,26 @@
         "pais": "Canada",
         "imagen": "/images/toronto.jpg",
         "url": "#"
+    },
+    {
+        "id": 13,
+        "ciudad": "Berlin",
+        "pais": "Germany",
+        "imagen": "/images/Berlin.jpg",
+        "url": "#"
+    },
+    {
+        "id": 14,
+        "ciudad": "Seoul",
+        "pais": "South Korea",
+        "imagen": "/images/Seoul.jpg",
+        "url": "#"
+    },
+    {
+        "id": 15,
+        "ciudad": "Mexico City",
+        "pais": "Mexico",
+        "imagen": "/images/Mexico.jpg",
+        "url": "#"
     }
 ]
