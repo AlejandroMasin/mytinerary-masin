@@ -10,9 +10,10 @@ function Cities() {
   useEffect(() => {
     async function fetchCiudades() {
       try {
-        const response = await fetch('./data_cities.json');
+        const response = await fetch('http://localhost:4000/api/cities');
         const data = await response.json();
         setCiudades(data);
+        console.log(data);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -58,7 +59,7 @@ function Cities() {
               <img src={ciudad.imagen} alt="" />
               <h5>{ciudad.ciudad}</h5>
               {/* <button >Mas info</button> */}
-              <Anchor className="btn btn-danger" to={`/cities/city/${ciudad.id}`}>Mas info</Anchor>
+              <Anchor className="btn btn-danger" to={`/cities/city/${ciudad._id}`}>Mas info</Anchor>
 
             </div>
           ))
