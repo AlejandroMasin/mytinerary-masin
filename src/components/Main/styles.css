@@ -1,3 +1,7 @@
+main {
+  width: 85vw;
+  margin: 0 auto;
+}
 #call-to-action{
     font-size: 30px;
     border-radius: 10px;

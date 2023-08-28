@@ -48,22 +48,25 @@ function Cities() {
 
       <div id="contenedor_cards" className="container d-flex justify-content-center align-items-center flex-wrap">
         {ciudadesFiltrados.length === 0
-        ?
-         (
-          <h2>Sin resultados</h2>
-        )
-        :
-         (
-          ciudadesFiltrados.map((ciudad, index) => (
-            <div className='contenedor_cards_imagen' key={index}>
-              <img src={ciudad.imagen} alt="" />
-              <h5>{ciudad.ciudad}</h5>
-              {/* <button >Mas info</button> */}
-              <Anchor className="btn btn-danger" to={`/cities/city/${ciudad._id}`}>Mas info</Anchor>
-
+          ?
+          (
+            <div className='vh-100 vw-100'>
+              <h2>Sin resultados</h2>
             </div>
-          ))
-        )}
+
+          )
+          :
+          (
+            ciudadesFiltrados.map((ciudad, index) => (
+              <div className='contenedor_cards_imagen' key={index}>
+                <img src={ciudad.imagen} alt="" />
+                <h5>{ciudad.ciudad}</h5>
+                {/* <button >Mas info</button> */}
+                <Anchor className="btn btn-danger" to={`/cities/city/${ciudad._id}`}>Mas info</Anchor>
+
+              </div>
+            ))
+          )}
       </div>
     </>
   );
