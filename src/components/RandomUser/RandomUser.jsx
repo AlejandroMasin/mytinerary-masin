@@ -19,8 +19,6 @@ function RandomUser() {
       fetchUser()
   }, []);
 
-
-
   function createCard(data) {
     setUserData(data);
   }

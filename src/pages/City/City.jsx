@@ -32,8 +32,13 @@ function City() {
     fetchCiudad();
   }, [id]);
 
-  console.log(id);
-  console.log(Object.keys(ciudad).length);
+  let itinerarios = []
+
+  if (ciudad.itineraries && ciudad.itineraries.length > 0) {
+    itinerarios = ciudad.itineraries;
+  }
+
+  console.log(itinerarios);
 
   return (
     <>
@@ -53,18 +58,30 @@ function City() {
                 <img className='img-fluid' src={ciudad?.imagen} alt={ciudad?.ciudad} />
               </div>
 
+              {/* <Itinerary nombre={itinerarios.nombre} />
               <Itinerary />
-              <Itinerary />
-              <Itinerary />
+              <Itinerary /> */}
+
+              <div>
+                {itinerarios.length > 0 ? (
+                  itinerarios.map((itinerario, index) => (
+                    <div key={index}>
+                      <Itinerary nombre={itinerario.nombre} precio={itinerario.precio} duracion={itinerario.duracion} />
+                    </div>
+                  ))
+                ) : (
+                  <h2>Sin itinerarios</h2>
+                )}
+              </div>
 
               {/* <div className='img_en_construccion' >
             </div> */}
 
-            </section>
+            </section >
 
             <Anchor to="/cities"><h3 className='p-3'>Back to cities</h3></Anchor>
 
-          </div>
+          </div >
         )
       }
 

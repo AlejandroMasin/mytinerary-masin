@@ -5,11 +5,11 @@ import money from '/public/icons8-money-48.png'
 import en_construccion from '../../../public/construccion.jpg'
 // import SeeMore from '../SeeMore/SeeMore'
 
-function Itinerary() {
+function Itinerary({nombre, precio, duracion}) {
 
-    const cantidadRepeticiones = 4;
+    // const cantidadRepeticiones = 3;
 
-    const lineasRepetidas = [...Array(cantidadRepeticiones)].map((_, index) => (
+    const lineasRepetidas = [...Array(precio)].map((_, index) => (
         <img key={index} src={money} alt={`Precio_imagen_${index}`} />
     ));
 
@@ -18,7 +18,7 @@ function Itinerary() {
 
             <div className="card_itinerary">
 
-                <h3 className="itinerary-heading">Itinerary: Name</h3>
+                <h3 className="itinerary-heading">Itinerary: {nombre}</h3>
 
                 <div className="row">
                     <RandomUser />
@@ -26,8 +26,6 @@ function Itinerary() {
 
                 <div className="row">
                     <div className="col-3"> Price
-                        <span>4</span>
-
                         <div>
                             {lineasRepetidas}
                         </div>
@@ -35,7 +33,7 @@ function Itinerary() {
                     </div>
                     <div className="col-3">
                         <span>Duration</span>
-                        <span>3 hours</span>
+                        <span>{duracion}</span>
                     </div>
                     <div className="col-3">
 
