@@ -1,48 +1,59 @@
 import { Navigate, useParams } from 'react-router-dom'
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import './styles.css'
-// import cities from '../../../public/data_cities.json'
-// import en_construccion from '../../../public/construccion.jpg'
 import { Link as Anchor } from 'react-router-dom'
 import Itinerary from '../../components/Itinerary/Itinerary';
+import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import citiesActions from '../../store/actions/cities';
 
 function City() {
 
   const { id } = useParams()
 
-  const [ciudad, setCiudad] = useState({});
+  // const [ciudad, setCiudad] = useState({});
+
+  let cityInStore = useSelector(store => store.citiesReducer)
+  console.log(cityInStore.cities[0]);
+
+  const dispatch = useDispatch()
 
   useEffect(() => {
     async function fetchCiudad() {
       try {
-        const response = await fetch(`http://localhost:4000/api/city/${id}`);
+        const response = await axios.get(`http://localhost:4000/api/city/${id}`);
 
-        if (!response.ok) {
+        if (response.status !== 200) {
           throw new Error(`Ciudad no encontrada: ${response.status}`);
         }
 
-        const data = await response.json();
+        const data = response.data;
 
-        setCiudad(data);
+        // setCiudad(data);
+
+        dispatch(citiesActions.add_cities([data]))
+
+
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     }
 
     fetchCiudad();
-  }, [id]);
+  }, []);
 
-  let itinerarios = []
+  let ciudad = cityInStore.cities[0]
+  let itinerarios = ciudad.itineraries
 
-  if (ciudad.itineraries && ciudad.itineraries.length > 0) {
-    itinerarios = ciudad.itineraries;
-  }
+  // if (cityInStore.itineraries && cityInStore.itineraries.length == 0) {
+  //   itinerarios = cityInStore;
+  // }
 
-  console.log(itinerarios);
+  console.log("itinerarios", itinerarios);
 
   return (
     <>
-      {!ciudad
+      {!cityInStore.cities
         // Object.keys(ciudad).length == 0
         ?
         (
@@ -58,24 +69,17 @@ function City() {
                 <img className='img-fluid' src={ciudad?.imagen} alt={ciudad?.ciudad} />
               </div>
 
-              {/* <Itinerary nombre={itinerarios.nombre} />
-              <Itinerary />
-              <Itinerary /> */}
-
               <div>
                 {itinerarios.length > 0 ? (
                   itinerarios.map((itinerario, index) => (
                     <div key={index}>
-                      <Itinerary nombre={itinerario.nombre} precio={itinerario.precio} duracion={itinerario.duracion} />
+                      <Itinerary nombre={itinerario.nombre} precio={itinerario.precio} likes={itinerario.likes.length} hashtags={itinerario.hashtags} duracion={itinerario.duracion} />
                     </div>
                   ))
                 ) : (
-                  <h2>Sin itinerarios</h2>
+                  <h2>Without itineraries</h2>
                 )}
               </div>
-
-              {/* <div className='img_en_construccion' >
-            </div> */}
 
             </section >
 

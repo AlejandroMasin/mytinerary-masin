@@ -1,6 +1,12 @@
+import { useEffect } from 'react';
 import './styles.css'
 
 function Error404() {
+
+    useEffect(() => {
+        document.title = "My Tinerary | Page not found";
+      }, []);
+
     return (
         <>
             <div className="error">

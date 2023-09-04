@@ -25,7 +25,7 @@ function Carrousel() {
 
     return (
         <>
-            <div id="carouselExampleInterval" className="carousel slide" data-bs-ride="carousel">
+            <div id="carouselExampleInterval" className="container carousel slide" data-bs-ride="carousel">
                 <div className="carousel-inner">
 
                     <div className="carousel-item active" data-bs-interval="3000">

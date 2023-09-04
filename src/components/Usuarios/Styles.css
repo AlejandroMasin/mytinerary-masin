@@ -1,0 +1,19 @@
+.contenedor_usuarios {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .container_usuario {
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .img_usuario {
+    height: 150px;
+    padding: 10px;
+    border-radius: 20px;
+  }

@@ -3,9 +3,8 @@ import './styles.css'
 import like from '/public/like.svg'
 import money from '/public/icons8-money-48.png'
 import en_construccion from '../../../public/construccion.jpg'
-// import SeeMore from '../SeeMore/SeeMore'
 
-function Itinerary({nombre, precio, duracion}) {
+function Itinerary({ nombre, precio, duracion, likes, hashtags }) {
 
     // const cantidadRepeticiones = 3;
 
@@ -37,12 +36,17 @@ function Itinerary({nombre, precio, duracion}) {
                     </div>
                     <div className="col-3">
 
-                        <div>0 <img src={like} alt="Likes_imagen" /></div>
+                        <div className='m-3'> {likes} <img src={like} alt="Likes_imagen" /></div>
+
                     </div>
                     <div className="col-3">
-                        <span>#Travel</span>
-                        <span>#Adventure</span>
-                        <span>#Photography</span>
+
+                        <div>
+                            {hashtags.map((hashtag, index) => (
+                                <span key={index}>{hashtag}</span>
+                            ))}
+                        </div>
+
                     </div>
 
 

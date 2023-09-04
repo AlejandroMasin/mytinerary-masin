@@ -13,3 +13,7 @@ section.city {
     width: 200px;
     margin: 0 auto;
 }
+
+.contenedor_city {
+    min-height: 100vh;
+}

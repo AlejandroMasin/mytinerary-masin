@@ -1,0 +1,23 @@
+{
+    "usuarios": [
+      {
+        "nombre": "Usuario1",
+        "edad": 25,
+        "correo": "usuario1@example.com",
+        "imagen": "https://cdn.pixabay.com/photo/2023/07/16/09/31/cat-8130334_1280.jpg"
+      },
+      {
+        "nombre": "Usuario2",
+        "edad": 30,
+        "correo": "usuario2@example.com",
+        "imagen": "https://cdn.pixabay.com/photo/2023/07/16/09/31/cat-8130334_1280.jpg"
+      },
+      {
+        "nombre": "Usuario3",
+        "edad": 28,
+        "correo": "usuario3@example.com",
+        "imagen": "https://cdn.pixabay.com/photo/2023/07/16/09/31/cat-8130334_1280.jpg"
+      }
+    ]
+  }
+  

@@ -1,19 +1,34 @@
 import { useState, useEffect } from 'react';
 import './styles.css';
 import { Link as Anchor } from 'react-router-dom'
+import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import citiesActions from '../../store/actions/cities';
 
 
 function Cities() {
-  const [ciudades, setCiudades] = useState([]);
+
+  useEffect(() => {
+    document.title = "My Tinerary | Cities";
+  }, []);
+
+  // const [ciudades, setCiudades] = useState([]);
   const [inputValue, setInputValue] = useState('');
+
+  let citiesInStore = useSelector(store => store.citiesReducer)
+  console.log(citiesInStore.cities);
+
+  const dispatch = useDispatch()
 
   useEffect(() => {
     async function fetchCiudades() {
       try {
-        const response = await fetch('http://localhost:4000/api/cities');
-        const data = await response.json();
-        setCiudades(data);
-        console.log(data);
+        const response = await axios.get('http://localhost:4000/api/cities/');
+        const data = response.data;
+        // setCiudades(data);
+
+        dispatch(citiesActions.add_cities(data))
+
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -26,7 +41,7 @@ function Cities() {
     setInputValue(e.target.value);
   };
 
-  const ciudadesFiltrados = ciudades.filter(ciudad =>
+  const ciudadesFiltrados = citiesInStore.cities.filter(ciudad =>
     ciudad.ciudad.toLowerCase().startsWith(inputValue.toLowerCase())
   );
 
@@ -62,7 +77,7 @@ function Cities() {
                 <img src={ciudad.imagen} alt="" />
                 <h5>{ciudad.ciudad}</h5>
                 {/* <button >Mas info</button> */}
-                <Anchor className="btn btn-danger" to={`/cities/city/${ciudad._id}`}>Mas info</Anchor>
+                <Anchor className="btn btn-danger" to={`/cities/city/${ciudad._id}`}>More info</Anchor>
 
               </div>
             ))
