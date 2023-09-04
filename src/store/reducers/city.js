@@ -1,8 +1,8 @@
 import { createReducer } from "@reduxjs/toolkit";
-import citiesActions from "../actions/city";
+import cityActions from "../actions/city";
 
 const initialState = {
-    cities: [
+    city: [
         {
 
             ciudad: "",
@@ -17,11 +17,11 @@ const initialState = {
 const cityReducer = createReducer(initialState, (builder) => {
 
     return builder
-    .addCase(citiesActions.add_city, (state, action) => {
-        const  newState = {...state, cities: action.payload.cities}
+    .addCase(cityActions.get_city.fulfilled, (state, action) => {
+        const  newState = {...state, city: action.payload.city}
         return newState
     })
 
 })
 
-export default {cityReducer}
+export default cityReducer

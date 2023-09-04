@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import './styles.css';
 import { Link as Anchor } from 'react-router-dom'
-import axios from 'axios';
+// import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import citiesActions from '../../store/actions/cities';
 
@@ -16,25 +16,14 @@ function Cities() {
   const [inputValue, setInputValue] = useState('');
 
   let citiesInStore = useSelector(store => store.citiesReducer)
-  console.log(citiesInStore.cities);
+  console.log(citiesInStore);
 
   const dispatch = useDispatch()
 
   useEffect(() => {
-    async function fetchCiudades() {
-      try {
-        const response = await axios.get('http://localhost:4000/api/cities/');
-        const data = response.data;
-        // setCiudades(data);
 
-        dispatch(citiesActions.add_cities(data))
+    dispatch(citiesActions.get_cities())
 
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    }
-
-    fetchCiudades();
   }, []);
 
   const handleInputChange = (e) => {

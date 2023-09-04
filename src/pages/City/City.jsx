@@ -3,57 +3,46 @@ import { useEffect } from 'react';
 import './styles.css'
 import { Link as Anchor } from 'react-router-dom'
 import Itinerary from '../../components/Itinerary/Itinerary';
-import axios from 'axios';
+// import axios from 'axios';
+// import { useDispatch, useSelector } from 'react-redux';
+import cityActions from '../../store/actions/city';
 import { useDispatch, useSelector } from 'react-redux';
-import citiesActions from '../../store/actions/cities';
 
 function City() {
 
   const { id } = useParams()
 
-  // const [ciudad, setCiudad] = useState({});
-
-  let cityInStore = useSelector(store => store.citiesReducer)
-  console.log(cityInStore.cities[0]);
+  let cityInStore = useSelector(store => store.cityReducer)
+  console.log("cityInStore", cityInStore.city);
 
   const dispatch = useDispatch()
 
+  let ciudad = cityInStore.city
+
   useEffect(() => {
-    async function fetchCiudad() {
-      try {
-        const response = await axios.get(`http://localhost:4000/api/city/${id}`);
 
-        if (response.status !== 200) {
-          throw new Error(`Ciudad no encontrada: ${response.status}`);
-        }
+    try {
 
-        const data = response.data;
+      dispatch(cityActions.get_city(id))
 
-        // setCiudad(data);
-
-        dispatch(citiesActions.add_cities([data]))
-
-
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
+    } catch (error) {
+      console.error('Error fetching data:', error);
     }
 
-    fetchCiudad();
-  }, []);
 
-  let ciudad = cityInStore.cities[0]
-  let itinerarios = ciudad.itineraries
+  }, [dispatch, id]);
 
-  // if (cityInStore.itineraries && cityInStore.itineraries.length == 0) {
-  //   itinerarios = cityInStore;
-  // }
+  let itinerarios = []
 
-  console.log("itinerarios", itinerarios);
+  if (ciudad.itineraries && ciudad.itineraries.length > 0) {
+    itinerarios = ciudad.itineraries;
+  }
+
+  console.log(itinerarios);
 
   return (
     <>
-      {!cityInStore.cities
+      {!ciudad
         // Object.keys(ciudad).length == 0
         ?
         (

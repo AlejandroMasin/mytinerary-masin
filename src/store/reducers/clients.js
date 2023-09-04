@@ -15,7 +15,7 @@ const initialState = {
 const clientsReducer = createReducer(initialState, (builder) => {
 
     return builder
-    .addCase(clientsActions.add_clients, (state, action) => {
+    .addCase(clientsActions.get_clients.fulfilled, (state, action) => {
         const  newState = {...state, clients: action.payload.clients}
         return newState
     })

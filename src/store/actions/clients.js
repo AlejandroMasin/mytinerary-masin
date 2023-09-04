@@ -1,14 +1,28 @@
-import { createAction } from "@reduxjs/toolkit";
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
-const add_clients = createAction('add_clients', (array) => {
+const get_clients = createAsyncThunk('get_clients', async () => {
 
-    return {
-        payload: {
-            clients: array
+    try {
+        const clients = await axios.get('/usuarios.json')
+            .then( (response) => {
+                
+                return response.data
+            })
+
+        return {
+
+            clients: clients
+
         }
-    }
-} )
 
-const clientsActions = {add_clients}
+    } catch (error) {
+        console.error('Error al cargar datos:', error);
+    }
+
+
+})
+
+const clientsActions = { get_clients }
 
 export default clientsActions
