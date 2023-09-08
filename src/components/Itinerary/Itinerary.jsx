@@ -4,7 +4,7 @@ import like from '/public/like.svg'
 import money from '/public/icons8-money-48.png'
 import en_construccion from '../../../public/construccion.jpg'
 
-function Itinerary({ nombre, precio, duracion, likes, hashtags }) {
+function Itinerary({ nombre, description, precio, duracion, likes, hashtags }) {
 
     // const cantidadRepeticiones = 3;
 
@@ -21,6 +21,10 @@ function Itinerary({ nombre, precio, duracion, likes, hashtags }) {
 
                 <div className="row">
                     <RandomUser />
+                </div>
+
+                <div>
+                    <h4 className='text-dark'>{description}</h4>
                 </div>
 
                 <div className="row">

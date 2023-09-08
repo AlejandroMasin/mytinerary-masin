@@ -21,10 +21,6 @@ const citiesReducer = createReducer(initialState, (builder) => {
         const  newState = {...state, cities: action.payload.cities}
         return newState
     })
-    .addCase(citiesActions.get_city_by_id.fulfilled, (state, action) => {
-        const  newState = {...state, city: action.payload.city}
-        return newState
-    })
 
 })
 

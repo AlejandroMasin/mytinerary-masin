@@ -38,15 +38,15 @@ function City() {
     itinerarios = ciudad.itineraries;
   }
 
-  console.log(itinerarios);
+  console.log("itinerarios", itinerarios);
 
   return (
     <>
       {!ciudad
-        // Object.keys(ciudad).length == 0
+
         ?
         (
-          <Navigate to="/cities" /> // Redirigir a otra página de error si no se encuentra la ciudad
+          <Navigate to="/cities" />
         ) :
         (
           <div className="contenedor_city p-2">
@@ -62,7 +62,7 @@ function City() {
                 {itinerarios.length > 0 ? (
                   itinerarios.map((itinerario, index) => (
                     <div key={index}>
-                      <Itinerary nombre={itinerario.nombre} precio={itinerario.precio} likes={itinerario.likes.length} hashtags={itinerario.hashtags} duracion={itinerario.duracion} />
+                      <Itinerary nombre={itinerario.nombre} description={itinerario.descripcion} precio={itinerario.precio} likes={itinerario.likes.length} hashtags={itinerario.hashtags} duracion={itinerario.duracion} />
                     </div>
                   ))
                 ) : (
