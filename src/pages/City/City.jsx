@@ -25,7 +25,7 @@ function City() {
 
       dispatch(cityActions.get_city(id))
 
-      // return ()  => dispatch(cityActions.resetCity())
+      return ()  => dispatch(cityActions.resetCity())
 
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -71,7 +71,7 @@ function City() {
                         likes={itinerario.likes.length}
                         hashtags={itinerario.hashtags}
                         duracion={itinerario.duracion}
-                        id={index} // Pasa el identificador único (en este caso, el índice)
+                        id={index} 
                       />
                     </div>
                   ))

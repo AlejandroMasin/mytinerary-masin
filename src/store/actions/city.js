@@ -21,7 +21,7 @@ const get_city = createAsyncThunk('get_city', async (id) => {
 
 const resetCity = createAction('resetCity', () => {
     return  {
-        payload: null
+        payload: {}
     }
 })
 
