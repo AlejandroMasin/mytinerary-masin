@@ -1,4 +1,4 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { createAction, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const get_city = createAsyncThunk('get_city', async (id) => {
@@ -19,6 +19,12 @@ const get_city = createAsyncThunk('get_city', async (id) => {
 
 })
 
-const cityActions = { get_city }
+const resetCity = createAction('resetCity', () => {
+    return  {
+        payload: null
+    }
+})
+
+const cityActions = { get_city, resetCity}
 
 export default cityActions

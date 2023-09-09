@@ -25,6 +25,8 @@ function City() {
 
       dispatch(cityActions.get_city(id))
 
+      // return ()  => dispatch(cityActions.resetCity())
+
     } catch (error) {
       console.error('Error fetching data:', error);
     }
@@ -58,17 +60,24 @@ function City() {
                 <img className='img-fluid' src={ciudad?.imagen} alt={ciudad?.ciudad} />
               </div>
 
-              <div>
+              
                 {itinerarios.length > 0 ? (
                   itinerarios.map((itinerario, index) => (
                     <div key={index}>
-                      <Itinerary nombre={itinerario.nombre} description={itinerario.descripcion} precio={itinerario.precio} likes={itinerario.likes.length} hashtags={itinerario.hashtags} duracion={itinerario.duracion} />
+                      <Itinerary
+                        nombre={itinerario.nombre}
+                        description={itinerario.descripcion}
+                        precio={itinerario.precio}
+                        likes={itinerario.likes.length}
+                        hashtags={itinerario.hashtags}
+                        duracion={itinerario.duracion}
+                        id={index} // Pasa el identificador único (en este caso, el índice)
+                      />
                     </div>
                   ))
                 ) : (
                   <h2>Without itineraries</h2>
                 )}
-              </div>
 
             </section >
 
