@@ -19,6 +19,14 @@ function City() {
 
   let ciudad = cityInStore.city
 
+  // document.title = `My Tinerary | ${ciudad.ciudad}`;
+
+  useEffect(() => {
+    if (ciudad.ciudad) {
+      document.title = `My Tinerary | ${ciudad.ciudad}`;
+    }
+  }, [ciudad.ciudad]);
+
   useEffect(() => {
 
     try {

@@ -24,7 +24,7 @@ function Cities() {
 
     dispatch(citiesActions.get_cities())
 
-  }, []);
+  }, [dispatch]);
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
@@ -39,6 +39,7 @@ function Cities() {
       <div className="search">
         <div className="input-group rounded">
           <input
+            id='search_cities'
             type="search"
             className="form-control rounded"
             placeholder="Search"

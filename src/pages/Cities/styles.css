@@ -15,8 +15,12 @@
 
 .form-control {
     /* display: inline-block !important; */
+    /* max-width: 50% !important; */
+    border: 3px solid rgba(207, 41, 41, 0.5);
+}
+
+#search_cities{
     max-width: 50% !important;
-    border: 5px solid rgba(255, 0, 0, 0.5);
 }
 
 .contenedor_cards_imagen {

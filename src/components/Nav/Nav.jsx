@@ -23,16 +23,16 @@ function Nav() {
 
                             </li>
                             <li className="nav-item">
-
                                 <Anchor to="/cities" className="nav-link active">Cities</Anchor>
-
                             </li>
+
                             <li className="nav-item">
-                                <a className="nav-item btn btn-primary" href="#">
+                                <Anchor className="nav-item btn btn-primary" to="/login" >
                                     <img src={person} alt="logo persona" />
                                     Login
-                                </a>
+                                </Anchor>
                             </li>
+
                         </ul>
                     </div>
                 </div>

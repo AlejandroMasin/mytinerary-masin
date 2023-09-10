@@ -1,0 +1,27 @@
+.container_sign_up{
+    margin: 0px;
+}
+
+.p-md-5, .card{
+    padding: 0px !important;
+}
+
+
+@media (max-width: 500px) {
+    .container_sign_up{
+        margin: 0px;
+    }
+
+    .img-register {
+        display: none;
+    }
+
+    .card {
+        padding: 0px;
+    }
+
+    .mb-4 {
+        margin-bottom: 0px !important;
+    }
+  }
+  
