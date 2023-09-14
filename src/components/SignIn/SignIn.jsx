@@ -1,10 +1,12 @@
 import { Link as Anchor, useNavigate } from 'react-router-dom';
 import './Styles.css';
 import { useEffect, useRef } from 'react';
-import google from '/1534129544.png'
+// import google from '/1534129544.png'
 import { useDispatch } from 'react-redux';
 import { signIn } from '../../store/actions/userActions';
 import { toast } from 'react-toastify';
+import { GoogleLogin } from '@react-oauth/google';
+import jwtDecode from "jwt-decode";
 
 function SignIn() {
   // const handleSubmit = (event) => {
@@ -54,6 +56,29 @@ function SignIn() {
   };
 
 
+  const signInWithGoogle = (credentialResponse) => {
+    const userData = jwtDecode(credentialResponse.credential);
+
+    const body = {
+      email: userData.email,
+      password: userData.given_name + userData.sub
+    }
+
+    dispatch(signIn(body)).then((response) => {
+      if (response.payload.success) {
+        // alert("Bienvenido " + response.payload.user.name);
+        toast.success("Welcome " + response.payload.user.name);
+
+        navigate("/");
+      } else {
+        // Mostrar mensaje de error en caso de contraseña o correo incorrectos
+        // alert("Contraseña o email incorrecto");
+        toast.error("Password or email incorrect");
+
+      }
+    });
+
+  }
   return (
     <>
       <div className="container-signin">
@@ -61,12 +86,26 @@ function SignIn() {
           <form onSubmit={handleSubmit}>
             <h1 className="h3 mb-3 fw-normal">Please sign in</h1>
 
-            <div className="mt-5">
+            {/* <div className="mt-5">
               <div className="justify-content-center">
                 <div className="md-6">
 
                   <a href="#" className="btn btn-primary my-3"> <img className='px-1' src={google} alt="" />
                     Login with Google
+                  </a>
+                </div>
+              </div>
+            </div> */}
+
+            <div className="mt-5">
+              <div className="justify-content-center">
+                <div className="md-6">
+                  <a href="#" className="btn btn-primary my-3">
+                    {' '}
+                    <GoogleLogin onSuccess={signInWithGoogle} text='signin_with'
+                      onError={() => {
+                        console.log('Login Failed');
+                      }} />
                   </a>
                 </div>
               </div>
@@ -98,7 +137,6 @@ function SignIn() {
             <button className="btn btn-primary w-100 py-2" type="submit">
               Sign in
             </button>
-
             <p className="mt-3">
               Don&apos;t have an account? <Anchor to="/register">Sign up</Anchor>
             </p>

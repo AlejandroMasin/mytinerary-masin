@@ -32,7 +32,7 @@ function Nav() {
                 <div className="container-fluid">
                     <Anchor to="/" className="navbar-brand">My Tinerary</Anchor>
                     {
-                        user && user !== undefined ?
+                        user ?
                             (
                                 <>
                                     <div className='text-success'>{user?.name} {user?.lastname + ":"}</div>

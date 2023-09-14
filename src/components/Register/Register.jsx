@@ -1,13 +1,15 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link as Anchor, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import google from '/1534129544.png';
+// import google from '/1534129544.png';s
 
 import register from '/draw1.webp';
 import './Styles.css';
 import { useDispatch } from 'react-redux';
 import { signUp } from '../../store/actions/userActions';
 import { toast } from 'react-toastify';
+import { GoogleLogin } from '@react-oauth/google';
+import jwtDecode from "jwt-decode";
 
 
 function Register() {
@@ -96,6 +98,37 @@ function Register() {
   //     "password": "Hashedpassword1234"
   // }
 
+  const signUpWithGoogle = (credentialResponse) => {
+    const dataUser = jwtDecode(credentialResponse.credential);
+
+    console.log(dataUser);
+    const body = {
+      name: dataUser.given_name,
+      lastname: dataUser.family_name + dataUser.family_name,
+      image: dataUser.picture,
+      country: "Argentina",
+      email: dataUser.email,
+      password: dataUser.given_name + dataUser.sub
+    }
+
+
+    console.log(body);
+    dispatch(signUp(body))
+    .then((response) => {
+      if (response.payload.success) {
+        // alert("Bienvenido " + response.payload.user.name);
+        toast.success("Register " + response.payload.user.name);
+
+        navigate("/login");
+      } else {
+        // Mostrar mensaje de error en caso de contraseña o correo incorrectos
+        // alert("Contraseña o email incorrecto");
+        toast.error("Comprueba todos los campos y que el email no esté en uso");
+
+      }
+    });
+  }
+
   return (
     <>
       <div className="container_sign_up">
@@ -109,7 +142,7 @@ function Register() {
                       <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                         <p className="text-center h1 fw-bold mx-1 mx-md-4 mt-1">Sign up</p>
 
-                        <div className="mt-5">
+                        {/* <div className="mt-5">
                           <div className="justify-content-center">
                             <div className="md-6">
                               <a href="#" className="btn btn-primary my-3">
@@ -119,7 +152,23 @@ function Register() {
                               </a>
                             </div>
                           </div>
+                        </div> */}
+
+                        <div className="mt-5">
+                          <div className="justify-content-center">
+                            <div className="md-6">
+                              <a href="#" className="btn btn-primary my-3">
+                                {' '}
+                                <GoogleLogin onSuccess={signUpWithGoogle} text='signup_with'
+                                  onError={() => {
+                                    console.log('Login Failed');
+                                  }} />
+                              </a>
+                            </div>
+                          </div>
                         </div>
+
+
 
                         <div className="py-1">OR</div>
 
@@ -242,6 +291,8 @@ function Register() {
                       <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
                         <img src={register} className="img-fluid img-register" alt="Sample image" />
                       </div>
+
+
                     </div>
                   </div>
                 </div>
