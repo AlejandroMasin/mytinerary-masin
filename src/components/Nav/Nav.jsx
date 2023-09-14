@@ -8,6 +8,7 @@ import { logout } from '../../store/actions/userActions';
 // import Confetti from 'react-confetti/dist/types/Confetti';
 
 import Confetti from '../Confetti/Confetti'
+import { toast } from 'react-toastify';
 
 
 function Nav() {
@@ -21,6 +22,8 @@ function Nav() {
 
     const handleClick = () => {
         dispatch(logout())
+
+        toast.info("Logout");
         navigate("/login");
 
     }

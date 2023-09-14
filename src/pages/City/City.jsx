@@ -1,4 +1,4 @@
-import { Navigate, useParams } from 'react-router-dom'
+import { Navigate, useLocation, useParams } from 'react-router-dom'
 import { useEffect } from 'react';
 import './styles.css'
 import { Link as Anchor } from 'react-router-dom'
@@ -11,6 +11,12 @@ import { useDispatch, useSelector } from 'react-redux';
 function City() {
 
   const { id } = useParams()
+
+  const location = useLocation()
+
+  useEffect( () => {
+    window.scrollTo(0,0)
+  }, [location])
 
   let cityInStore = useSelector(store => store.cityReducer)
   console.log("cityInStore", cityInStore.city);
