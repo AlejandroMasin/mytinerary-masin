@@ -1,16 +1,58 @@
-import { Link as Anchor } from 'react-router-dom';
+import { Link as Anchor, useNavigate } from 'react-router-dom';
 import './Styles.css';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import google from '/1534129544.png'
+import { useDispatch } from 'react-redux';
+import { signIn } from '../../store/actions/userActions';
+import { toast } from 'react-toastify';
 
 function SignIn() {
-  const handleSubmit = (event) => {
-    event.preventDefault(); // Evitar que el formulario se envíe
-  };
+  // const handleSubmit = (event) => {
+  //   event.preventDefault(); // Evitar que el formulario se envíe
+  // };
 
   useEffect(() => {
     document.title = "My Tinerary | Sign In";
   }, []);
+
+  const dispatch = useDispatch()
+
+  const navigate = useNavigate()
+
+  const email = useRef(null)
+  const password = useRef(null)
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const aux = [email, password];
+
+    if (aux.some((campo) => !campo.current.value)) {
+      toast.info("All fields are required");
+
+      // alert("Todos los campos son obligatorios");
+    } else {
+      const body = {
+        email: email.current.value,
+        password: password.current.value,
+      };
+
+      dispatch(signIn(body)).then((response) => {
+        if (response.payload.success) {
+          // alert("Bienvenido " + response.payload.user.name);
+          toast.success("Welcome " + response.payload.user.name);
+
+          navigate("/");
+        } else {
+          // Mostrar mensaje de error en caso de contraseña o correo incorrectos
+          // alert("Contraseña o email incorrecto");
+          toast.error("Password or email incorrect");
+
+        }
+      });
+    }
+  };
+
 
   return (
     <>
@@ -35,7 +77,7 @@ function SignIn() {
             </div>
 
             <div className="form-floating">
-              <input
+              <input ref={email}
                 type="email"
                 className="form-control"
                 id="floatingInput"
@@ -44,7 +86,7 @@ function SignIn() {
               <label htmlFor="floatingInput">Email address</label>
             </div>
             <div className="form-floating">
-              <input
+              <input ref={password}
                 type="password"
                 className="form-control"
                 id="floatingPassword"
